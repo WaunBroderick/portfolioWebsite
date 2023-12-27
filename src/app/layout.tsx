@@ -14,7 +14,8 @@ export const metadata: Metadata = {
     'I’m Waun, a software engineer and entrepreneur based in Toronto Canada. I’m currently a Technical Lead at Forum Ventures where I help validate, build, and deliver products for our portfolio companies.',
   alternates: {
     types: {
-      'application/rss+xml': `${process.env.NEXT_PUBLIC_SITE_URL}/feed.xml`,
+      //'application/rss+xml': `${process.env.NEXT_PUBLIC_SITE_URL}/feed.xml`,
+      'application/rss+xml': `${process.env.NEXT_PUBLIC_SITE_URL}`,
     },
   },
 }
