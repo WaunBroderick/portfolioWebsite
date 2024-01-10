@@ -55,7 +55,7 @@ export default function Speaking() {
       <div className="space-y-20">
         <SpeakingSection title="Podcasts">
           <Appearance
-            href="https://www.youtube.com/watch?v=LP-uxNcCXqU"
+            href="https://youtu.be/LP-uxNcCXqU?si=p6MbveAOn0jOCQ_g"
             title="Leadership, Communication, and New Ventures."
             description="A deep-dive into my first experience as a CTO. The need to sit between technical and management teams to communicate high-level concepts, whilst leading and encouraging competent and talented engineers. "
             event="The Datastory Tellers"
@@ -64,10 +64,11 @@ export default function Speaking() {
         </SpeakingSection>
         <SpeakingSection title="Panels">
           <Appearance
-            href="#"
-            title="Using design as a competitive advantage"
-            description="How we used world-class visual design to attract a great team, win over customers, and get more press for Planetaria."
-            event="Encoding Design, July 2022"
+            href="https://youtu.be/tJbo8BWG5Po?si=HyoEnXcb2IlkINJB"
+            title="Diversity in Business and Tech
+"
+            description="Join us as we celebrate incredible entrepreneurs and engage in a thoughtful panel discussion led by Innovation Cluster Vice Chair, Nicole Stephenson, to shed light on the challenges, potential solutions and what individuals, businesses and organizations can to do support Black, Indigenous and People of Colour (BIPOC) in business and tech!"
+            event="Innovation Cluster Panel"
             cta="Watch video"
           />
         </SpeakingSection>

@@ -105,7 +105,7 @@ function SocialLink({
   icon: React.ComponentType<{ className?: string }>
 }) {
   return (
-    <Link className="group -m-1 p-1" {...props}>
+    <Link className="group -m-1 p-1" {...props} target="_blank">
       <Icon className="h-6 w-6 fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300" />
     </Link>
   )
@@ -298,8 +298,7 @@ export default async function Home() {
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
             I’m Waun, a software engineer and entrepreneur based in Toronto
             Canada. I’m currently a Technical Lead at Forum Ventures where I
-            help validate, build, and deliver products for our portfolio
-            companies.
+            help validate, build, and deliver products for our studio companies.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
@@ -324,9 +323,10 @@ export default async function Home() {
       <Container className="mt-24 md:mt-28">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
           <div className="flex flex-col gap-16">
-            {articles.map((article) => (
+            <p>Work In Progress - soon to be articles area</p>
+            {/* {articles.map((article) => (
               <Article key={article.slug} article={article} />
-            ))}
+            ))} */}
           </div>
           <div className="space-y-10 lg:pl-16 xl:pl-24">
             <Newsletter />

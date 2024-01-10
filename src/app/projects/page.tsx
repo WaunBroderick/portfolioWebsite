@@ -12,7 +12,7 @@ const projects = [
     name: 'Swyft Treasury',
     description:
       'A fully managed treasury managment solution for companies looking to better utilize their financial reserves.',
-    link: { href: 'http://planetaria.tech', label: 'planetaria.tech' },
+    link: { href: 'https://swyfttreasury.com', label: 'swyfttreasury.com' },
     logo: logoPlanetaria,
   },
   {
