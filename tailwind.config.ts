@@ -24,5 +24,18 @@ export default {
       '9xl': ['8rem', { lineHeight: '1' }],
     },
     typography: typographyStyles,
+    extend: {
+      // Adding custom animations
+      animation: {
+        scroll: 'scroll 10s linear infinite',
+        // ... other animations if any
+      },
+      keyframes: {
+        scroll: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+      },
+    },
   },
 } satisfies Config

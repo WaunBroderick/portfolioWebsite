@@ -4,13 +4,7 @@ import Link from 'next/link'
 import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
-import {
-  GitHubIcon,
-  InstagramIcon,
-  LinkedInIcon,
-  TwitterIcon,
-} from '@/components/SocialIcons'
-import portraitImage from '@/images/portrait.jpg'
+import { GitHubIcon, LinkedInIcon } from '@/components/SocialIcons'
 import childhoodImage from '@/images/childhoodImage.jpeg'
 
 function SocialLink({
@@ -51,8 +45,7 @@ function MailIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 
 export const metadata: Metadata = {
   title: 'About',
-  description:
-    'I’m Waun, a software engineer and entrepreneur based in Toronto Canada. I’m currently a Technical Lead at Forum Ventures where I help validate, build, and deliver products for our studio companies.',
+  description: 'A union of career, and passion, in a life-long journey.',
 }
 
 export default function About() {
@@ -71,11 +64,10 @@ export default function About() {
         </div>
         <div className="lg:order-first lg:row-span-2">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            I’m Waun Broderick. I live in Toronto Canada, where I design the
-            future.
+            A union of career, and passion, a life-long journey.
           </h1>
           <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
-            <p>--</p>
+            <p>Work In Progress</p>
           </div>
         </div>
         <div className="lg:pl-20">

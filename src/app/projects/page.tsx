@@ -16,13 +16,6 @@ const projects = [
     logo: logoPlanetaria,
   },
   {
-    name: 'Legal Tech',
-    description:
-      'A completely digitized back-office for the creation, management, and distribution of legal documents.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoSiftr,
-  },
-  {
     name: 'Labnetik',
     description:
       'A mobile and web application Laboratory Information Management system for the Materials Testing Industry.',

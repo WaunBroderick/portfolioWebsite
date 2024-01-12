@@ -21,7 +21,7 @@ const mediumArticle02 = {
   href: 'https://medium.com/@broderickwaun/three-things-ive-learned-in-the-military-that-improve-my-startup-8a21f95139d0',
 }
 
-function Article({ article }: { article: ArticleWithSlug }) {
+export function Article({ article }: { article: ArticleWithSlug }) {
   return (
     <article className="md:grid md:grid-cols-4 md:items-baseline">
       <Card className="md:col-span-3">
@@ -50,7 +50,7 @@ function Article({ article }: { article: ArticleWithSlug }) {
   )
 }
 
-function ArticleLink({ article }: { article: any }) {
+export function ArticleLink({ article }: { article: any }) {
   return (
     <a href={article.href} target="_blank">
       <article className="md:grid md:grid-cols-4 md:items-baseline">

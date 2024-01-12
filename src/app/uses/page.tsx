@@ -51,30 +51,39 @@ export default function Uses() {
       <div className="space-y-20">
         <ToolsSection title="Languages & Frameworks">
           <Tool title="Typescript" href="https://www.typescriptlang.org/">
-            Often my front-to-bank language of choice, when creating fullstack
-            web applications.
+            TypeScript offers strong typing, allowing for more predictable code
+            and fewer runtime errors, which is a significant advantage over
+            JavaScript&apos;s dynamic typing, making it my full-stack language
+            of choice.
           </Tool>
           <Tool title="Python" href="https://www.python.org/">
-            My datascience, and machine learning language of choice, that I use
-            when projects require it. The language I used through my MSc as
-            well.
+            With Python&apos;s extensive libraries and frameworks for
+            machine-learning advantage streamlining the development of complex
+            algorithms and data processing, it often compliments my development
+            stack when I need to add Machine Leanring functionality.
           </Tool>
           <Tool title="Rust" href="https://www.rust-lang.org/">
-            When I want to make fast preformant applications or microservices,
-            rust is my go-to language.
+            When building an application that requires type-safey, concurrency,
+            and low latency, Rust&apos;s memory safety and efficient compilation
+            to native code makes it a great language when the business use case
+            calls for it.
           </Tool>
           <Tool title="NextJS" href="https://nextjs.org/">
-            I’m honestly not even sure what features I get with this that aren’t
-            just part of the macOS Terminal but it’s what I use.
+            One of my favorite React based frameworks that comes with
+            Server-Side-Rendering (SSR), Static-Site-Generation (SSG), code
+            splitting, and some initial decisions made on structure that comes
+            out of the box.
           </Tool>
           <Tool title="NestJS" href="https://nestjs.com/">
-            --
-          </Tool>
-          <Tool title="Django" href="https://www.djangoproject.com/">
-            --
+            A battle tested NodeJS Framework that focuses on architecture and
+            scalability that implements dependency injection, declarative
+            modules, and a powerful CLI. Making building back-ends an enjoyable
+            process.
           </Tool>
           <Tool title="GraphQL" href="https://graphql.org/">
-            --
+            When the use case calls for it, a fun data-query and manipulation
+            language that allows for a more declarative approach to data
+            fetching and manipulation.
           </Tool>
         </ToolsSection>
         <ToolsSection title="Development tools">

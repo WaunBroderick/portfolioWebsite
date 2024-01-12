@@ -24,6 +24,8 @@ import image5 from '@/images/photos/image-5.jpg'
 import { type ArticleWithSlug, getAllArticles } from '@/lib/articles'
 import { formatDate } from '@/lib/formatDate'
 
+import { mediumArticle01, mediumArticle02 } from './articles/mediumArticles'
+
 function MailIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
     <svg
@@ -94,6 +96,21 @@ function Article({ article }: { article: ArticleWithSlug }) {
       </Card.Eyebrow>
       <Card.Description>{article.description}</Card.Description>
       <Card.Cta>Read article</Card.Cta>
+    </Card>
+  )
+}
+
+function ArticleLink({ article }: { article: any }) {
+  return (
+    <Card as="article">
+      <a href={article.href} target="_blank">
+        <Card.Title>{article.title}</Card.Title>
+        <Card.Eyebrow as="time" dateTime={article.date} decorate>
+          {formatDate(article.date)}
+        </Card.Eyebrow>
+        <Card.Description>{article.description}</Card.Description>
+        <Card.Cta>Read article</Card.Cta>
+      </a>
     </Card>
   )
 }
@@ -260,26 +277,29 @@ function Resume() {
 
 function Photos() {
   let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
+  let images = [image1, image2, image3, image4, image5]
 
   return (
     <div className="mt-16 sm:mt-20">
-      <div className="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
-        {[image1, image2, image3, image4, image5].map((image, imageIndex) => (
-          <div
-            key={image.src}
-            className={clsx(
-              'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
-              rotations[imageIndex % rotations.length],
-            )}
-          >
-            <Image
-              src={image}
-              alt=""
-              sizes="(min-width: 640px) 18rem, 11rem"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-          </div>
-        ))}
+      <div className="relative -my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
+        <div className="hover:animate-scroll flex animate-none">
+          {[...images, ...images].map((image, imageIndex) => (
+            <div
+              key={`${image.src}-${imageIndex}`}
+              className={clsx(
+                'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
+                rotations[imageIndex % rotations.length],
+              )}
+            >
+              <Image
+                src={image}
+                alt=""
+                sizes="(min-width: 640px) 18rem, 11rem"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   )
@@ -323,10 +343,12 @@ export default async function Home() {
       <Container className="mt-24 md:mt-28">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
           <div className="flex flex-col gap-16">
-            <p>Work In Progress - soon to be articles area</p>
-            {/* {articles.map((article) => (
+            {articles.map((article) => (
               <Article key={article.slug} article={article} />
-            ))} */}
+            ))}
+            <ArticleLink article={mediumArticle01} />
+
+            <ArticleLink article={mediumArticle02} />
           </div>
           <div className="space-y-10 lg:pl-16 xl:pl-24">
             <Newsletter />
