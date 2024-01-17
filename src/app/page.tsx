@@ -21,6 +21,16 @@ import image2 from '@/images/photos/image-2.jpg'
 import image3 from '@/images/photos/image-3.jpg'
 import image4 from '@/images/photos/image-4.jpg'
 import image5 from '@/images/photos/image-5.jpg'
+import image6 from '@/images/photos/image-6.jpeg'
+import image7 from '@/images/photos/image-7.jpeg'
+import image8 from '@/images/photos/image-8.jpeg'
+import image9 from '@/images/photos/image-9.jpeg'
+import image10 from '@/images/photos/image-10.jpeg'
+import image11 from '@/images/photos/image-11.jpeg'
+import image12 from '@/images/photos/image-12.jpeg'
+import image13 from '@/images/photos/image-13.jpeg'
+import image14 from '@/images/photos/image-14.jpeg'
+import image15 from '@/images/photos/image-15.jpeg'
 import { type ArticleWithSlug, getAllArticles } from '@/lib/articles'
 import { formatDate } from '@/lib/formatDate'
 
@@ -277,12 +287,28 @@ function Resume() {
 
 function Photos() {
   let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
-  let images = [image1, image2, image3, image4, image5]
+  let images = [
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image6,
+    image7,
+    image8,
+    image9,
+    image10,
+    image11,
+    image12,
+    image13,
+    image14,
+    image15,
+  ]
 
   return (
     <div className="mt-16 sm:mt-20">
       <div className="relative -my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
-        <div className="hover:animate-scroll flex animate-none">
+        <div className="flex animate-none hover:animate-scroll">
           {[...images, ...images].map((image, imageIndex) => (
             <div
               key={`${image.src}-${imageIndex}`}
