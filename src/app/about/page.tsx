@@ -88,7 +88,7 @@ export default function About() {
               future of the internet.` Luckily, by the time I graduated
               high-school this road was well paved by many that came before me.
               I went on to complete my HBSc in Computer Science, and later in
-              life a part-time Master's of Science.
+              life a part-time Master&apos;s of Science.
             </p>
             <p>
               Along that journey I also learned that my love for digital
@@ -105,13 +105,13 @@ export default function About() {
               passing. What I learned from computers at a young age I found
               transitioned well to life. People are often interested in
               contributing and being a part of engaged communities, however,
-              sometimes finding open forums and means to do so isn't easy. Thus
-              a self-realized life-long study I was on as to how I can actively
-              help to uphold these communities IRL and digitally.
+              sometimes finding open forums and means to do so isn&apos;t easy.
+              Thus a self-realized life-long study I was on as to how I can
+              actively help to uphold these communities IRL and digitally.
             </p>
             <p>
-              After university I went on to work for Canada's largest tech
-              incubator, the head quarters for one of Canada's main banking
+              After university I went on to work for Canada&apos;s largest tech
+              incubator, the head quarters for one of Canada&apos;s main banking
               institution, and a Top Secret Intelligence agency, bringing
               technological solutions of all manner to stakeholders across a
               breadth of diverse business requirements. Brash and bold enough I
@@ -121,11 +121,11 @@ export default function About() {
             <p>
               I currently am a Technical Lead & Senior Full-Stack Developer at
               Forum Ventures where I get to fulfil the dreams of a younger me by
-              building applications on the edge of the market's need alongside
-              passionate founders. My journey is far from over, and though Ido
-              not know where life will take me next I know that following my
-              passion to build and excel at what I do will lead me to places A
-              younger me would be proud of.
+              building applications on the edge of the market&apos;s need
+              alongside passionate founders. My journey is far from over, and
+              though Ido not know where life will take me next I know that
+              following my passion to build and excel at what I do will lead me
+              to places A younger me would be proud of.
             </p>
           </div>
         </div>
