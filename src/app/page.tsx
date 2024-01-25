@@ -35,7 +35,6 @@ import { type ArticleWithSlug, getAllArticles } from '@/lib/articles'
 import { formatDate } from '@/lib/formatDate'
 
 import { mediumArticle01, mediumArticle02 } from './articles/mediumArticles'
-import Marquee from '@/components/marquee/Marquee'
 
 function MailIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
