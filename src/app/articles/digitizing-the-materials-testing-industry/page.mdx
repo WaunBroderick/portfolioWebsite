@@ -1,7 +1,10 @@
 import { ArticleLayout } from '@/components/ArticleLayout'
 import Image from 'next/image'
 import designSystem from './labnetikScreenshot.png'
-import labnetikLogo from './labnetikLogoBlack.png'
+import labnetikLogo from './labnetikLogo.png'
+import openerImage from './openerPhoto.png'
+import projectsMockup from './projectsMockup.png'
+import scheduleMockup from './scheduleMockup.png'
 
 export const article = {
   author: 'Waun Broderick',
@@ -23,7 +26,7 @@ have increased so too have the demand for infrastructural buildings to facilitat
 capabailites. To increase the efficiency and overall effectiveness the materials testing industry needed a solution that addressed their
 accumulated innovational debt and ushered them into Industry 3.0.
 
-<Image className="m-5 p-5" src={labnetikLogo} alt="Labnetik Logo" />
+<Image src={labnetikLogo} alt="Labnetik Logo" />
 
 _A cloud full-stack web and mobile-native application that facilitates the testing, scientific calucations, and client liasing of the Materials Testing industry._
 
@@ -35,7 +38,7 @@ At its baseline there needed to be a product that provided a distinctly differen
 facilitated through a native-mobile app and web-application. In a mono-repo with shared back-end services and two seperate front-ends we were able to create
 a system that allowed for just that.
 
-XXX SHOW PHONE AND WEB SIDE BY SIDE
+<Image src={openerImage} alt="Image of different Labnetik Screens" />
 
 ## Technologies Used\*
 
@@ -78,7 +81,7 @@ the Organization into Laboratory entities, that then can hold or share various p
 This allowing an organization to fine-tune the passage of information between different
 laboratories without any need for duplicate information or worries about data security.
 
-XXX SHOW ORGANIZATIONAL BREAK DOWN
+<Image src={projectsMockup} alt="Image of different Labnetik Screens" />
 
 With a flexible underline asset architecture we wanted to ensure that our user experience didn't
 dead-lock the functionality of our overall application. Like the parent-child relationship of organizations
@@ -90,7 +93,15 @@ To ensure this wasn't done at the cost of confidentiality, integrity, or availab
 ability for organizations to self-govern their information access management through a robust and flexible
 role or attribute base permissions system.
 
-XXX SHOW IAM IMAGES
+## The Workflow
+
+## Mobile Applications
+
+<Image src={scheduleMockup} alt="Image of different Labnetik Screens" />
+
+### Features
+
+#### Report Generation
 
 ```c
 exbibyte_wins = gigahertz(3);
