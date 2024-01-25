@@ -5,6 +5,8 @@ import labnetikLogo from './labnetikLogo.png'
 import openerImage from './openerPhoto.png'
 import projectsMockup from './projectsMockup.png'
 import scheduleMockup from './scheduleMockup.png'
+import labnetikWorkflow from './labnetikWorkflow.png'
+import sampleDocuments from './sampleDocuments.png'
 
 export const article = {
   author: 'Waun Broderick',
@@ -30,7 +32,14 @@ accumulated innovational debt and ushered them into Industry 3.0.
 
 _A cloud full-stack web and mobile-native application that facilitates the testing, scientific calucations, and client liasing of the Materials Testing industry._
 
-## The Technology Stack
+# Table of Contents
+
+1. [The Technology Stack](#technology)
+2. [The Architecture](#architecture)
+3. [The Workflows](#workflows)
+4. [The Features](#fourth-examplehttpwwwfourthexamplecom)
+
+## The Technology Stack <a name="technology"></a>
 
 Labnetik starts with a fundamental design built to fit the needs of a decentralized organizational structure.
 One comprised of several different stakeholders spanning different environments, responsibilities, with significantly different persona characteristics.
@@ -39,8 +48,12 @@ facilitated through a native-mobile app and web-application. In a mono-repo with
 a system that allowed for just that.
 
 <Image src={openerImage} alt="Image of different Labnetik Screens" />
+<figcaption>
+  Labnetik being used in its two different applications (mobile & web) with a
+  variety of device specific views.
+</figcaption>
 
-## Technologies Used\*
+## The Technologies Stack
 
 <details>
   <summary>Main Stack</summary>
@@ -72,7 +85,7 @@ a system that allowed for just that.
 
 </details>
 
-## The Architecture
+## The Architecture <a name="architecture"></a>
 
 In Materials testing a significant amount of their work is facilitated by their satellite
 testing laboratories ran by teams of dedicated technicians. The Data architecture
@@ -81,7 +94,10 @@ the Organization into Laboratory entities, that then can hold or share various p
 This allowing an organization to fine-tune the passage of information between different
 laboratories without any need for duplicate information or worries about data security.
 
-<Image src={projectsMockup} alt="Image of different Labnetik Screens" />
+<Image src={projectsMockup} alt="Image of Labnetik Projects screen" />
+<figcaption>
+  The admin page for creating, editing, and linking projects data.
+</figcaption>
 
 With a flexible underline asset architecture we wanted to ensure that our user experience didn't
 dead-lock the functionality of our overall application. Like the parent-child relationship of organizations
@@ -93,7 +109,22 @@ To ensure this wasn't done at the cost of confidentiality, integrity, or availab
 ability for organizations to self-govern their information access management through a robust and flexible
 role or attribute base permissions system.
 
-## The Workflow
+## The Workflow <a name="workflows"></a>
+
+Labnetik did many things, but it's core foundation was an engine for business process automation. Due to the the
+breadth of stakeholders,diversity in roles, and distributed locations the handling of documents was of the highest
+importance. Labnetik needed the kernel of its innovation to start with digitizing and simplifying document handling.
+That alone was no easy feat...
+
+<Image src={sampleDocuments} alt="Example test documents" />
+<figcaption>
+  Example documents from a series of materials testing labs and test types.
+</figcaption>
+
+<Image src={labnetikWorkflow} alt="Workflow diagram" />
+<figcaption>
+  A highly simplified and abstracted workflow diagram of a test.
+</figcaption>
 
 ## Mobile Applications
 
