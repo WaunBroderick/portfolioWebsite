@@ -7,7 +7,9 @@ import projectsMockup from './projectsMockup.png'
 import scheduleMockup from './scheduleMockup.png'
 import labnetikWorkflow from './labnetikWorkflow.png'
 import sampleDocuments from './sampleDocuments.png'
+import schedulingAndDispatching from './schedulingAndDispatching.png'
 
+import { listenerCount } from 'process'
 export const article = {
   author: 'Waun Broderick',
   date: '2024-01-01',
@@ -37,7 +39,7 @@ _A cloud full-stack web and mobile-native application that facilitates the testi
 1. [The Technology Stack](#technology)
 2. [The Architecture](#architecture)
 3. [The Workflows](#workflows)
-4. [The Features](#fourth-examplehttpwwwfourthexamplecom)
+4. [The Features](#features)
 
 ## The Technology Stack <a name="technology"></a>
 
@@ -70,6 +72,7 @@ a system that allowed for just that.
 
 - [Redux](https://react-redux.js.org/) - Application State Manager
 - [ReactQuery](https://tanstack.com/query/v3/) - Data Fetching Management
+- [Docker](https://www.docker.com/) - Containerization
 
 </details>
 
@@ -121,136 +124,60 @@ That alone was no easy feat...
   Example documents from a series of materials testing labs and test types.
 </figcaption>
 
+To go through all of the workflows that were ingested and broken down into; swimlanes, process diagrams, and
+other visualizations would require more time than intended to take in this product document. Instead only one of the most
+common workflows is visualized below. This is in itself an abstraction and simplification of a generic test, but has enough
+information to provide a general understanding of the complexity of the workflows.
+
 <Image src={labnetikWorkflow} alt="Workflow diagram" />
 <figcaption>
   A highly simplified and abstracted workflow diagram of a test.
 </figcaption>
 
-## Mobile Applications
+## Features <a name="features"></a>
 
-<Image src={scheduleMockup} alt="Image of different Labnetik Screens" />
+With a shared reference of understanding we can start to examine some of the features that were built to facilitate
+the needs of this workflow alone.
 
-### Features
+| Loose Business Requirement          | Features                                                                                                                                                         |
+| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Creating An Organization with Labs  | Registration + Authentication, Role Based & Attribute Based Permissions System, Organization Based Lab entities, Project sharing or isolating between labs, ...  |
+| Creating Worker profiles            | Profile creation system, Credential uploading system, geo-location tracking, ...                                                                                 |
+| Ticket Bidding & Assignment         | Ticket sending and queueing system, Credential matching system, geo-location based approval calculations, ...                                                    |
+| Technician Dispatching              | Work load scheduling, close-to real-time viewing of assets, chat communication system, ...                                                                       |
+| Field Test Conducting               | Offline-mode for low-connectivity, Shared back-end for singular test integrity, Ability to save and continue work when needed, Autofilling fields, ...           |
+| Lab Scientific Operations           | Advanced flagging of test anomolies or errors, Ability to facilitate complex multi-phase tests, Robust preset functionality to minimize input duplication, ...   |
+| Document Genertation                | Document creation system to customized the needs for every organization/lab/test, ...                                                                            |
+| Client Liasing & Document Archiving | Document archive to view all completed reports, Ability to send documents from the application and track their status, Robust archive sorting and filtering, ... |
 
-#### Report Generation
+<figcaption>
+  A table that is not an exhaustive list, but collection of some features and
+  their associated business requirements.
+</figcaption>
 
+All of these features contributed to the overall success of the application in providing a solution that increased
+their productivity, efficiency, and effectivness.
+
+## Feature: Scheduling & Dispatching
+
+<Image
+  src={schedulingAndDispatching}
+  alt="Image of different Labnetik Screens"
+/>
+
+## The Outcomes
+
+## Contributors
+
+```typescript
+type Contributor = {
+  name: string
+  role: string
+  linkedIn: string
+}
+const WaunBroderick: Contributor = {
+  name: 'Waun Broderick',
+  role: 'CTO & Dev Manager',
+  linkedIn: 'https://www.linkedin.com/in/waunbroderick/',
+}
 ```
-npm install --production
-NODE_ENV=production node app
-```
-
-## Plugins
-
-Dillinger is currently extended with the following plugins.
-Instructions on how to use them in your own application are linked below.
-
-| Plugin           | README                                    |
-| ---------------- | ----------------------------------------- |
-| Dropbox          | [plugins/dropbox/README.md][PlDb]         |
-| GitHub           | [plugins/github/README.md][PlGh]          |
-| Google Drive     | [plugins/googledrive/README.md][PlGd]     |
-| OneDrive         | [plugins/onedrive/README.md][PlOd]        |
-| Medium           | [plugins/medium/README.md][PlMe]          |
-| Google Analytics | [plugins/googleanalytics/README.md][PlGa] |
-
-## Development
-
-Want to contribute? Great!
-
-Dillinger uses Gulp + Webpack for fast developing.
-Make a change in your file and instantaneously see your updates!
-
-Open your favorite Terminal and run these commands.
-
-First Tab:
-
-```
-node app
-```
-
-Second Tab:
-
-```
-gulp watch
-```
-
-(optional) Third:
-
-```
-karma test
-```
-
-#### Building for source
-
-For production release:
-
-```
-gulp build --prod
-```
-
-Generating pre-built zip archives for distribution:
-
-```
-gulp build dist --prod
-```
-
-## Docker
-
-Dillinger is very easy to install and deploy in a Docker container.
-
-By default, the Docker will expose port 8080, so change this within the
-Dockerfile if necessary. When ready, simply use the Dockerfile to
-build the image.
-
-```
-cd dillinger
-docker build -t <youruser>/dillinger:${package.json.version} .
-```
-
-This will create the dillinger image and pull in the necessary dependencies.
-Be sure to swap out `${package.json.version}` with the actual
-version of Dillinger.
-
-Once done, run the Docker image and map the port to whatever you wish on
-your host. In this example, we simply map port 8000 of the host to
-port 8080 of the Docker (or whatever port was exposed in the Dockerfile):
-
-```
-docker run -d -p 8000:8080 --restart=always --cap-add=SYS_ADMIN --name=dillinger <youruser>/dillinger:${package.json.version}
-```
-
-> Note: `--capt-add=SYS-ADMIN` is required for PDF rendering.
-
-Verify the deployment by navigating to your server address in
-your preferred browser.
-
-```
-127.0.0.1:8000
-```
-
-## License
-
-MIT
-
-**Free Software, Hell Yeah!**
-
-[//]: # "These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax"
-[dill]: https://github.com/joemccann/dillinger
-[git-repo-url]: https://github.com/joemccann/dillinger.git
-[john gruber]: http://daringfireball.net
-[df1]: http://daringfireball.net/projects/markdown/
-[markdown-it]: https://github.com/markdown-it/markdown-it
-[Ace Editor]: http://ace.ajax.org
-[node.js]: http://nodejs.org
-[Twitter Bootstrap]: http://twitter.github.com/bootstrap/
-[jQuery]: http://jquery.com
-[@tjholowaychuk]: http://twitter.com/tjholowaychuk
-[express]: http://expressjs.com
-[AngularJS]: http://angularjs.org
-[Gulp]: http://gulpjs.com
-[PlDb]: https://github.com/joemccann/dillinger/tree/master/plugins/dropbox/README.md
-[PlGh]: https://github.com/joemccann/dillinger/tree/master/plugins/github/README.md
-[PlGd]: https://github.com/joemccann/dillinger/tree/master/plugins/googledrive/README.md
-[PlOd]: https://github.com/joemccann/dillinger/tree/master/plugins/onedrive/README.md
-[PlMe]: https://github.com/joemccann/dillinger/tree/master/plugins/medium/README.md
-[PlGa]: https://github.com/RahulHP/dillinger/blob/master/plugins/googleanalytics/README.md
