@@ -5,7 +5,6 @@ import { SimpleLayout } from '@/components/SimpleLayout'
 import { type ArticleWithSlug, getAllArticles } from '@/lib/articles'
 import { formatDate } from '@/lib/formatDate'
 import Link from 'next/link'
-import LabnetikArticle from './labnetikArticle'
 
 const mediumArticle01 = {
   slug: 'Applied AI',
@@ -105,7 +104,6 @@ export default async function ArticlesIndex() {
             <ArticleLink article={mediumArticle02} />
           </a>
           <Link href={'/labnetikArticle'}>LABNETIK</Link>
-          <LabnetikArticle />
         </div>
       </div>
     </SimpleLayout>
