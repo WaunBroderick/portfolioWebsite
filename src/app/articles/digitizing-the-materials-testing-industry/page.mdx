@@ -1,12 +1,13 @@
 import { ArticleLayout } from '@/components/ArticleLayout'
 import Image from 'next/image'
 import designSystem from './labnetikScreenshot.png'
+import labnetikLogo from './labnetikLogoBlack.png'
 
 export const article = {
   author: 'Waun Broderick',
   date: '2024-01-01',
-  title: '(WIP) Labnetik - Digitizing the materials testing industry.',
-  description: 'our $3M Journey in transforming an industry.',
+  title: 'Labnetik - Digitizing The Materials Testing Industry',
+  description: 'our Journey in transforming an industry',
 }
 
 export const metadata = {
@@ -16,26 +17,80 @@ export const metadata = {
 
 export default (props) => <ArticleLayout article={article} {...props} />
 
-Most companies try to stay ahead of the curve when it comes to visual design, but for Planetaria we needed to create a brand that would still inspire us 100 years from now when humanity has spread across our entire solar system.
+The materials testing industry is the societal foundation that ensures that our civil structures are compliant, quality controled,
+and of the highest safety standards. It is valued at USD $6.5B and has continued to grow year over year for decades. As populations
+have increased so too have the demand for infrastructural buildings to facilitate their growth, increasing the demand beyond current
+capabailites. To increase the efficiency and overall effectiveness the materials testing industry needed a solution that addressed their
+accumulated innovational debt and ushered them into Industry 3.0.
 
-<Image src={designSystem} alt="" />
+<Image className="m-5 p-5" src={labnetikLogo} alt="Labnetik Logo" />
 
-I knew that to get it right I was going to have to replicate the viewing conditions of someone from the future, so I grabbed my space helmet from the closet, created a new Figma document, and got to work.
+_A cloud full-stack web and mobile-native application that facilitates the testing, scientific calucations, and client liasing of the Materials Testing industry._
 
-## The industry
+## The Technology Stack
 
-Lorem markdownum, bracchia in redibam! Terque unda puppi nec, linguae posterior
-in utraque respicere candidus Mimasque formae; quae conantem cervice. Parcite
-variatus, redolentia adeunt. Tyrioque dies, naufraga sua adit partibus celanda
-torquere temptata, erit maneat et ramos, [iam](#) ait dominari
-potitus! Tibi litora matremque fumantia condi radicibus opusque.
+Labnetik starts with a fundamental design built to fit the needs of a decentralized organizational structure.
+One comprised of several different stakeholders spanning different environments, responsibilities, with significantly different persona characteristics.
+At its baseline there needed to be a product that provided a distinctly different set of workflows for each segment of users, a functions-first approach
+facilitated through a native-mobile app and web-application. In a mono-repo with shared back-end services and two seperate front-ends we were able to create
+a system that allowed for just that.
 
-Deus feram verumque, fecit, ira tamen, terras per alienae victum. Mutantur
-levitate quas ubi arcum ripas oculos abest. Adest [commissaque
-victae](#) in gemitus nectareis ire diva
-dotibus ora, et findi huic invenit; fatis? Fractaque dare superinposita
-nimiumque simulatoremque sanguine, at voce aestibus diu! Quid veterum hausit tu
-nil utinam paternos ima, commentaque.
+XXX SHOW PHONE AND WEB SIDE BY SIDE
+
+## Technologies Used\*
+
+<details>
+  <summary>Main Stack</summary>
+
+- [NestJs](https://nestjs.com/) - Back-End Framework
+- [React](https://react.dev/) - Front-End Framework
+- [React Native](https://reactnative.dev/) - Front-End Framework
+- [MongoDB](https://www.mongodb.com/) - NoSQL Database
+
+</details>
+
+<details>
+  <summary>Utilities & Libraries</summary>
+
+- [Redux](https://react-redux.js.org/) - Application State Manager
+- [ReactQuery](https://tanstack.com/query/v3/) - Data Fetching Management
+
+</details>
+
+<details>
+  <summary>Infrastructure & Tooling</summary>
+
+- [Github](https://github.com/) - VCS, CI/CD Repo, Collaboration Center
+- [NxCloud](https://nx.app/) - Monorepo CI/CD Tooling
+- [AWS](https://aws.amazon.com/) - Infrastructure Services
+- [Sentry](https://sentry.io/) - Application Logging, Monitoring and Alerting
+- [DataDog](https://www.datadoghq.com/) - Application Observability
+- [LaunchDarkly](https://launchdarkly.com/) - Feature Flagging
+
+</details>
+
+## The Architecture
+
+In Materials testing a significant amount of their work is facilitated by their satellite
+testing laboratories ran by teams of dedicated technicians. The Data architecture
+of our application decouples the organizational layers and allows the institution to separate,
+the Organization into Laboratory entities, that then can hold or share various project identifiers.
+This allowing an organization to fine-tune the passage of information between different
+laboratories without any need for duplicate information or worries about data security.
+
+XXX SHOW ORGANIZATIONAL BREAK DOWN
+
+With a flexible underline asset architecture we wanted to ensure that our user experience didn't
+dead-lock the functionality of our overall application. Like the parent-child relationship of organizations
+and laboratories, users can also be decoupled from organizations so they can belong to multiple laboratories,
+or multiple organizations. Something that is important for technicians that sit between organizations, or
+stakeholders overseeing processes.
+
+To ensure this wasn't done at the cost of confidentiality, integrity, or availability, Labnetik ensures the
+ability for organizations to self-govern their information access management through a robust and flexible
+role or attribute base permissions system.
+
+XXX SHOW IAM IMAGES
 
 ```c
 exbibyte_wins = gigahertz(3);
