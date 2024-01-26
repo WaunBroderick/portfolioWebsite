@@ -8,6 +8,8 @@ import scheduleMockup from './scheduleMockup.png'
 import labnetikWorkflow from './labnetikWorkflow.png'
 import sampleDocuments from './sampleDocuments.png'
 import schedulingAndDispatching from './schedulingAndDispatching.png'
+import orgGovTestMGMT from './orgGovTestMGMT.png'
+import documentGenClient from './documentGenClient.png'
 
 import { listenerCount } from 'process'
 export const article = {
@@ -22,15 +24,17 @@ export const metadata = {
   description: article.description,
 }
 
+import '../../style.css'
+
 export default (props) => <ArticleLayout article={article} {...props} />
 
-The materials testing industry is the societal foundation that ensures that our civil structures are compliant, quality controled,
+The materials testing industry is a societal foundation that ensures that our civil structures are compliant, quality controled,
 and of the highest safety standards. It is valued at USD $6.5B and has continued to grow year over year for decades. As populations
 have increased so too have the demand for infrastructural buildings to facilitate their growth, increasing the demand beyond current
 capabailites. To increase the efficiency and overall effectiveness the materials testing industry needed a solution that addressed their
-accumulated innovational debt and ushered them into Industry 3.0.
+innovational debt and ushered them into a new digitized era.
 
-<Image src={labnetikLogo} alt="Labnetik Logo" />
+<Image src={labnetikLogo} alt="Labnetik Logo" className="image-scale" />
 
 _A cloud full-stack web and mobile-native application that facilitates the testing, scientific calucations, and client liasing of the Materials Testing industry._
 
@@ -44,18 +48,21 @@ _A cloud full-stack web and mobile-native application that facilitates the testi
 ## The Technology Stack <a name="technology"></a>
 
 Labnetik starts with a fundamental design built to fit the needs of a decentralized organizational structure.
-One comprised of several different stakeholders spanning different environments, responsibilities, with significantly different persona characteristics.
-At its baseline there needed to be a product that provided a distinctly different set of workflows for each segment of users, a functions-first approach
-facilitated through a native-mobile app and web-application. In a mono-repo with shared back-end services and two seperate front-ends we were able to create
-a system that allowed for just that.
+One comprised of several stakeholders spanning different environments, responsibilities, and significantly different persona characteristics.
+At its baseline there needed to be a product that provided a distinctly different set of workflows for each segment of user. To meet the need we created a functions-first design
+facilitated through a native-mobile app and web-application.
 
-<Image src={openerImage} alt="Image of different Labnetik Screens" />
+<Image
+  src={openerImage}
+  alt="Image of different Labnetik Screens"
+  className="image-scale"
+/>
 <figcaption>
   Labnetik being used in its two different applications (mobile & web) with a
   variety of device specific views.
 </figcaption>
 
-## The Technologies Stack
+## The Technology Stack
 
 <details>
   <summary>Main Stack</summary>
@@ -93,11 +100,15 @@ a system that allowed for just that.
 In Materials testing a significant amount of their work is facilitated by their satellite
 testing laboratories ran by teams of dedicated technicians. The Data architecture
 of our application decouples the organizational layers and allows the institution to separate,
-the Organization into Laboratory entities, that then can hold or share various project identifiers.
-This allowing an organization to fine-tune the passage of information between different
+the Organization into Laboratory entities, that can hold or share various data objects.
+This allows the organization to fine-tune the passage of information between different
 laboratories without any need for duplicate information or worries about data security.
 
-<Image src={projectsMockup} alt="Image of Labnetik Projects screen" />
+<Image
+  src={projectsMockup}
+  alt="Image of Labnetik Projects screen"
+  className="image-scale"
+/>
 <figcaption>
   The admin page for creating, editing, and linking projects data.
 </figcaption>
@@ -105,12 +116,19 @@ laboratories without any need for duplicate information or worries about data se
 With a flexible underline asset architecture we wanted to ensure that our user experience didn't
 dead-lock the functionality of our overall application. Like the parent-child relationship of organizations
 and laboratories, users can also be decoupled from organizations so they can belong to multiple laboratories,
-or multiple organizations. Something that is important for technicians that sit between organizations, or
-stakeholders overseeing processes.
+or multiple organizations. Something that is important for technicians that sit between organizations, like
+stakeholders overseeing regional processes.
 
 To ensure this wasn't done at the cost of confidentiality, integrity, or availability, Labnetik ensures the
 ability for organizations to self-govern their information access management through a robust and flexible
 role or attribute base permissions system.
+
+From a technical perspective the application was built on a monorepo in a monolithic arhitecture that was designed
+to be observable, flexible and scalable. From a product development perspective we were adament about developing
+a client-centric architecture that aligned with a product hierarchy of values that we believed would ensure the
+best adoption from the indsutry. Without listing every design decision of our architecture we can assert that we
+built everything with the following in mind; Security & data handling, compliance, client & employee management,
+Automation & Optimization.
 
 ## The Workflow <a name="workflows"></a>
 
@@ -119,7 +137,11 @@ breadth of stakeholders,diversity in roles, and distributed locations the handli
 importance. Labnetik needed the kernel of its innovation to start with digitizing and simplifying document handling.
 That alone was no easy feat...
 
-<Image src={sampleDocuments} alt="Example test documents" />
+<Image
+  src={sampleDocuments}
+  alt="Example test documents"
+  className="image-scale"
+/>
 <figcaption>
   Example documents from a series of materials testing labs and test types.
 </figcaption>
@@ -129,7 +151,7 @@ other visualizations would require more time than intended to take in this produ
 common workflows is visualized below. This is in itself an abstraction and simplification of a generic test, but has enough
 information to provide a general understanding of the complexity of the workflows.
 
-<Image src={labnetikWorkflow} alt="Workflow diagram" />
+<Image src={labnetikWorkflow} alt="Workflow diagram" className="image-scale" />
 <figcaption>
   A highly simplified and abstracted workflow diagram of a test.
 </figcaption>
@@ -158,26 +180,86 @@ the needs of this workflow alone.
 All of these features contributed to the overall success of the application in providing a solution that increased
 their productivity, efficiency, and effectivness.
 
+## Feature: Organization Governence & Test Management
+
+<Image
+  src={orgGovTestMGMT}
+  alt="Images of different Labnetik Screens"
+  className="image-scale"
+/>
+
 ## Feature: Scheduling & Dispatching
 
 <Image
   src={schedulingAndDispatching}
-  alt="Image of different Labnetik Screens"
+  alt="Images of different Labnetik Screens"
+  className="image-scale"
+/>
+
+## Feature: Document Generation & Client Liasing
+
+<Image
+  src={documentGenClient}
+  alt="Images of different Labnetik Screens"
+  className="image-scale"
 />
 
 ## The Outcomes
 
+Labnetik was one of over 5+ projects that the team at _Gyroscopic Inc_ delivered in its 4 years of operation.
+The product was one of our two main revenue lines that helped us ultimately secure our +3M in funding to
+continue our growth. It saw adoption from some of the largest materials testing companies in the North America
+and was met with praise from several industry partners.
+
+Due to a series of business variables & market factors, the company was ultimately dissolved in 2023. At the moment
+the landing page can still be seen at [labnetik.com](https://labnetik.com/) though will most likey be taken down in
+the near future.
+
+Regardless of the outran financial runway, the goal of creating a solution that would quantifably help the industry
+was met. A very ambitious and passionate team of engineers, designers, and business professionals came together to
+create a product that was truly innovative and impactful in a space that was in dire need of it. Though Labnetik will
+not be the product that transforms the industry, it will be the one to learn from for the next products that will ultimately
+do so.
+
 ## Contributors
+
+The entirety of this project was built by the amazing team at _Gyroscopic Inc_ who I was so very lucky to work with. For archival
+significance some of the key contributors that I could reach for their permission are listed below.
 
 ```typescript
 type Contributor = {
   name: string
   role: string
-  linkedIn: string
+  linkedIn: string | null
 }
+
 const WaunBroderick: Contributor = {
   name: 'Waun Broderick',
   role: 'CTO & Dev Manager',
   linkedIn: 'https://www.linkedin.com/in/waunbroderick/',
+}
+
+const ChrisBeetham: Contributor = {
+  name: 'Chris Beetham',
+  role: 'CEO & President',
+  linkedIn: 'https://www.linkedin.com/in/waunbroderick/',
+}
+
+const AidanPotts: Contributor = {
+  name: 'Aidan Potts',
+  role: 'CRO & Sales Director',
+  linkedIn: 'https://www.linkedin.com/in/waunbroderick/',
+}
+
+const KatieBurton: Contributor = {
+  name: 'Katie Burton',
+  role: 'Head of Product Design',
+  linkedIn: 'https://www.linkedin.com/in/k-burton/',
+}
+
+const TaylorMcLean: Contributor = {
+  name: 'Taylor McLean',
+  role: 'Staff Engineer',
+  linkedIn: 'https://www.linkedin.com/in/taylor-mclean-1b1b1b1b/',
 }
 ```

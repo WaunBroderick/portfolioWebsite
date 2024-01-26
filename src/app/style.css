@@ -1,0 +1,7 @@
+.image-scale {
+  transition: transform 0.3s ease;
+}
+
+.image-scale:hover {
+  transform: scale(1.5); /* Increase image size by 50% */
+}
