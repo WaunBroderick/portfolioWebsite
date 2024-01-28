@@ -103,7 +103,6 @@ export default async function ArticlesIndex() {
           <a>
             <ArticleLink article={mediumArticle02} />
           </a>
-          <Link href={'/labnetikArticle'}>LABNETIK</Link>
         </div>
       </div>
     </SimpleLayout>
