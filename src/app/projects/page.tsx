@@ -19,14 +19,20 @@ const projects = [
     name: 'Labnetik',
     description:
       'A mobile and web application Laboratory Information Management system for the Materials Testing Industry.',
-    link: { href: '#', label: 'github.com' },
+    link: {
+      href: 'https://www.waunbroderick.com/articles/digitizing-the-materials-testing-industry',
+      label: 'www.labnetik.ca (Possibly sunsetted)',
+    },
     logo: logoLabnetik,
   },
   {
     name: 'Siftr',
     description:
       'A circular economics engine for the exchange of raw resources, facilitating all its chemical, legal, and operation needs..',
-    link: { href: '#', label: 'github.com' },
+    link: {
+      href: 'https://www.siftr.net',
+      label: 'Siftr.net (Possibly sunsetted)',
+    },
     logo: logoSiftr,
   },
 ]
