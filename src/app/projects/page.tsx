@@ -6,14 +6,15 @@ import { SimpleLayout } from '@/components/SimpleLayout'
 import logoPlanetaria from '@/images/logos/planetaria.svg'
 import logoLabnetik from '@/images/logos/labnetikLogo.jpeg'
 import logoSiftr from '@/images/logos/siftrLogo.png'
+import logoCreditPulse from '@/images/logos/CreditPulseLogo.png'
 
 const projects = [
   {
-    name: 'Swyft Treasury',
+    name: 'Credit Pulse',
     description:
-      'A fully managed treasury managment solution for companies looking to better utilize their financial reserves.',
-    link: { href: 'https://swyfttreasury.com', label: 'swyfttreasury.com' },
-    logo: logoPlanetaria,
+      'Credit Pulse is transforming credit risk management by eliminating manual effort and continuously monitoring for portfolio-wide risks.',
+    link: { href: 'https://creditpulse.com', label: 'creditpulse.com' },
+    logo: logoCreditPulse,
   },
   {
     name: 'Labnetik',
@@ -21,7 +22,7 @@ const projects = [
       'A mobile and web application Laboratory Information Management system for the Materials Testing Industry.',
     link: {
       href: 'https://www.waunbroderick.com/articles/digitizing-the-materials-testing-industry',
-      label: 'www.labnetik.ca (Possibly sunsetted)',
+      label: 'Sunsetted - Read more about it here.',
     },
     logo: logoLabnetik,
   },
@@ -31,7 +32,7 @@ const projects = [
       'A circular economics engine for the exchange of raw resources, facilitating all its chemical, legal, and operation needs..',
     link: {
       href: 'https://www.siftr.net',
-      label: 'Siftr.net (Possibly sunsetted)',
+      label: 'Sunsetted - Read more about it here.',
     },
     logo: logoSiftr,
   },
