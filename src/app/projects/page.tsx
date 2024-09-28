@@ -7,6 +7,8 @@ import logoPlanetaria from '@/images/logos/planetaria.svg'
 import logoLabnetik from '@/images/logos/labnetikLogo.jpeg'
 import logoSiftr from '@/images/logos/siftrLogo.png'
 import logoCreditPulse from '@/images/logos/CreditPulseLogo.png'
+import logoAmoeba from '@/images/logos/amoebaAvatar.svg'
+import logoCordelia from '@/images/logos/logoCordelia.svg'
 
 const projects = [
   {
@@ -15,6 +17,25 @@ const projects = [
       'Credit Pulse is transforming credit risk management by eliminating manual effort and continuously monitoring for portfolio-wide risks.',
     link: { href: 'https://creditpulse.com', label: 'creditpulse.com' },
     logo: logoCreditPulse,
+  },
+  {
+    name: 'Amoeba AI',
+    description:
+      'The AI-Powered Data Scientist for Revenue Growth. Transform sales and marketing data and generate dynamic, insight-driven, go-to-market decisions with confidence',
+    link: {
+      href: 'https://www.amoeb.ai',
+      label: 'Amoeb.ai',
+    },
+    logo: logoAmoeba,
+  },
+  {
+    name: 'Cordelia',
+    description: 'A AI Legal tech product, that is currently under stealth.',
+    link: {
+      href: 'https://www.google.com',
+      label: 'STEALTH',
+    },
+    logo: logoCordelia,
   },
   {
     name: 'Labnetik',
