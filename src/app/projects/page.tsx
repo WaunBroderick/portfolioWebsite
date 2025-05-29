@@ -33,7 +33,7 @@ const projects = [
     description: 'An AI Legal tech product, that is currently under stealth.',
     link: {
       href: 'https://www.getcordelia.com',
-      label: 'STEALTH',
+      label: 'Cordelia',
     },
     logo: logoCordelia,
   },
