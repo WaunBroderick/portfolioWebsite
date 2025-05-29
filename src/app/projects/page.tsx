@@ -30,7 +30,7 @@ const projects = [
   },
   {
     name: 'Cordelia',
-    description: 'An AI Legal tech product.',
+    description: 'An AI Legal tech product for estate management & planning.',
     link: {
       href: 'https://www.getcordelia.com',
       label: 'Cordelia',
