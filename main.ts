@@ -8,11 +8,6 @@ import { OperationResult } from './helper';
 import { helper } from './helper';
 
 
-
-
-
-
-
 /**
  * Main application function that demonstrates the orchestration of helper functions.
  * This function shows how the main module coordinates with the helper module.
@@ -21,6 +16,8 @@ import { helper } from './helper';
  * ```typescript
  * main(); // Will execute the orchestrated flow between main and helper
  * ```
+ * 
+ * this is for a thing that I am working on
  */
 export function main(): void {
   console.log('Main: Starting application flow');
