@@ -3,7 +3,9 @@
  * This module orchestrates the application flow and demonstrates circular dependency handling.
  */
 
-import { helper, OperationResult } from './helper';
+import { OperationResult } from './helper';
+
+import { helper } from './helper';
 
 
 
