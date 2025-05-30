@@ -32,7 +32,7 @@ const projects = [
     name: 'Cordelia',
     description: 'An Agentic AI Legal product for estate management and planning. A suite of AI agents designed to help you manage your estate and support your loved ones.',    link: {
       href: 'https://www.getcordelia.com',
-      label: 'Cordelia',
+      label: 'Cordelia Agentic AI',
     },
     logo: logoCordelia,
   },
