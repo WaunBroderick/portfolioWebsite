@@ -17,6 +17,18 @@ import { helper } from './helper';
  * main(); // Will execute the orchestrated flow between main and helper
  * ```
  * 
+ * @controllerDebug
+ * The following arrays are available for joining:
+ * 1. changedFiles: ['main.ts']
+ * 2. pathComponents: ['/opt/render/project/src/server', 'temp-docs', 'WaunBroderick-portfolio-documentation']
+ * 3. files: ['main.ts']
+ * 
+ * Note: The error occurs when trying to join an undefined array.
+ * This might be related to:
+ * - A missing array in the controller
+ * - An array that was destructured but not properly reassigned
+ * - An array that was expected to be created from pathComponents
+ * 
  * hiiiiiiiiii
  * sureeeessssss
  * 
