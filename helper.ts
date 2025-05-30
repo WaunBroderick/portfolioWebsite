@@ -5,4 +5,13 @@ export function helper() {
 
     // call back main function
     main();
+
+    // then call main function again
+    main();
+
+    // then call main function again
+    main();
+
+    // then call main function again
+    main();
   }
