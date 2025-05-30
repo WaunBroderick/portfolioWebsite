@@ -25,6 +25,14 @@ export default {
     },
     typography: typographyStyles,
     extend: {
+      
+        brand: {
+          50: '#f5faff',
+          100: '#e0f2fe',
+          500: '#0ea5e9',
+          700: '#0369a1'
+        }
+      
       // Adding custom animations
       animation: {
         scroll: 'scroll 10s linear infinite',
