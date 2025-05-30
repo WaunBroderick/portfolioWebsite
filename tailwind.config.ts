@@ -29,11 +29,21 @@ export default {
           50: '#f5faff',
           100: '#e0f2fe',
           500: '#0ea5e9',
-          700: '#0369a1'
+          700: '#0369a1',
+          900: '#000000',
+          1000: '#ffffff',
+          1100: '#000000',
+          1200: '#ffffff',
+          1300: '#000000',
+          1400: '#ffffff',
+          1500: '#000000',
+          1600: '#ffffff',
+          1700: '#000000',
         },
       // Adding custom animations
       animation: {
         scroll: 'scroll 10s linear infinite',
+        'spin-slow': 'spin 3s linear infinite',
         // ... other animations if any
       },
       keyframes: {
