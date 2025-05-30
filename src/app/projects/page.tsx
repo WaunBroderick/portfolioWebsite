@@ -30,7 +30,7 @@ const projects = [
   },
   {
     name: 'Cordelia',
-    description: 'A Legal product for estate management and planning. Estate planning of the future, powered by AI.',    
+    description: 'A Legal product for estate management and planning. Estate planning of the future, powered by AI. Also handles legal documents and contracts.',    
     link: {
       href: 'https://www.getcordelia.com',
       label: 'Cordelia',
