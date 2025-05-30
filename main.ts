@@ -17,17 +17,17 @@ import { helper } from './helper';
 export function main(): void {
   console.log('Main: Starting application flow');
   
-  // Execute helper function once to demonstrate basic interaction
-  helper();
+  // Execute helper function with a parameter to show data flow
+  helper('initialization');
   
   // Get and log the result of helper function
-  const helperResult = helper();
+  const helperResult = helper('processing');
   console.log('Main: Helper result:', helperResult);
   
-  // Execute helper function multiple times to demonstrate repeated interactions
+  // Execute helper function multiple times with different parameters
   for (let i = 0; i < 3; i++) {
     console.log(`Main: Executing helper iteration ${i + 1}`);
-    helper();
+    helper(`iteration-${i}`);
   }
   
   console.log('Main: Application flow completed');
