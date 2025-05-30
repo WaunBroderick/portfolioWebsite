@@ -3,7 +3,9 @@
  * This module orchestrates the application flow and demonstrates circular dependency handling.
  */
 
-import { helper } from './helper';
+import { helper, OperationResult } from './helper';
+
+
 
 /**
  * Main application function that demonstrates the orchestration of helper functions.
@@ -18,18 +20,23 @@ export function main(): void {
   console.log('Main: Starting application flow');
   
   // Execute helper function with a parameter to show data flow
-  helper('initialization');
+  const initResult = helper('initialization');
+  console.log('Main: Initialization status:', initResult.status);
   
   // Get and log the result of helper function
-  const helperResult = helper('processing');
-  console.log('Main: Helper result:', helperResult);
+  const processResult = helper('processing');
+  console.log('Main: Processing result:', processResult);
   
   // Execute helper function multiple times with different parameters
+  const results: OperationResult[] = [];
   for (let i = 0; i < 3; i++) {
     console.log(`Main: Executing helper iteration ${i + 1}`);
-    helper(`iteration-${i}`);
+    results.push(helper(`iteration-${i}`));
   }
   
+  // Log final status of all operations
+  const allSuccessful = results.every(r => r.status === 'success');
+  console.log('Main: All operations successful:', allSuccessful);
   console.log('Main: Application flow completed');
 }
 

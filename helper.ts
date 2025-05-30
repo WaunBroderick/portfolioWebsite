@@ -6,33 +6,55 @@
 import { main } from './main';
 
 /**
+ * Interface defining the structure of operation results
+ */
+export interface OperationResult {
+  status: 'success' | 'pending' | 'failed';
+  operation: string;
+  timestamp: number;
+  details?: string;
+}
+
+/**
  * Helper function that provides supporting operations and demonstrates interaction with main.
  * This function shows how the helper module can both support and interact with the main module.
  * 
  * @param {string} operation - The type of operation to perform
- * @returns {string} A status message indicating the helper's operation
+ * @returns {OperationResult} A structured result indicating the operation outcome
  * @example
  * ```typescript
  * const result = helper('initialization'); // Will execute helper operations with specific operation type
  * ```
- * 
- * 
  */
-export function helper(operation: string): string {
+export function helper(operation: string): OperationResult {
   console.log(`Helper: Starting ${operation} operations`);
   
-  // Execute main function to demonstrate circular dependency
-  console.log(`Helper: Calling main function for ${operation}`);
-  main();
+  const result: OperationResult = {
+    status: 'pending',
+    operation,
+    timestamp: Date.now()
+  };
   
-  // Execute main function multiple times with operation context
-  for (let i = 0; i < 3; i++) {
-    console.log(`Helper: Executing main iteration ${i + 1} for ${operation}`);
+  try {
+    // Execute main function to demonstrate circular dependency
+    console.log(`Helper: Calling main function for ${operation}`);
     main();
+    
+    // Execute main function multiple times with operation context
+    for (let i = 0; i < 3; i++) {
+      console.log(`Helper: Executing main iteration ${i + 1} for ${operation}`);
+      main();
+    }
+    
+    result.status = 'success';
+    result.details = `Completed ${operation} operations successfully`;
+  } catch (error: unknown) {
+    result.status = 'failed';
+    result.details = `Failed during ${operation}: ${error instanceof Error ? error.message : 'Unknown error'}`;
   }
   
-  console.log(`Helper: ${operation} operations completed`);
-  return `Helper ${operation} operations completed successfully`;
+  console.log(`Helper: ${operation} operations completed with status ${result.status}`);
+  return result;
 }
 
 // Export a version of helper that can be used as a module
