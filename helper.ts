@@ -15,6 +15,8 @@ import { main } from './main';
  * ```typescript
  * const result = helper('initialization'); // Will execute helper operations with specific operation type
  * ```
+ * 
+ * 
  */
 export function helper(operation: string): string {
   console.log(`Helper: Starting ${operation} operations`);
