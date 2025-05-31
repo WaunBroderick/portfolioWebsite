@@ -30,6 +30,7 @@ import { helper } from './helper';
  * - An array that was expected to be created from pathComponents
  * 
  * 
+ * hello worlds
  */
 export function main(): void {
   console.log('Main: Starting application flow');
