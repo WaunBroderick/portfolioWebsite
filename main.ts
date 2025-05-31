@@ -29,13 +29,7 @@ import { helper } from './helper';
  * - An array that was destructured but not properly reassigned
  * - An array that was expected to be created from pathComponents
  * 
- * hiiiiiiiiii
- * sureeeessssss
  * 
- * fffffff
- * 
- * lool
- * this is for a thing that I am working on
  */
 export function main(): void {
   console.log('Main: Starting application flow');
