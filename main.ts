@@ -18,6 +18,15 @@ export interface OperationResult {
 }
 
 /**
+ * Validates operation parameters before execution
+ * This adds a validation layer to the application flow
+ */
+export function validateOperation(operation: string): boolean {
+  const validOperations = ['initialization', 'processing', 'finalization', 'cleanup'];
+  return validOperations.includes(operation);
+}
+
+/**
  * Main application function that demonstrates standalone application flow.
  * This function now operates independently without directly calling helper.
  */
@@ -29,13 +38,19 @@ export function main(): void {
   const results: OperationResult[] = [];
   
   operations.forEach((operation, index) => {
+    // Add validation step
+    if (!validateOperation(operation)) {
+      console.log(`Main: Invalid operation ${operation}, skipping...`);
+      return;
+    }
+    
     console.log(`Main: Executing ${operation} operation ${index + 1}`);
     
     const result: OperationResult = {
       status: 'success',
       operation,
       timestamp: Date.now(),
-      details: `Completed ${operation} internally`
+      details: `Completed ${operation} internally with validation`
     };
     
     results.push(result);
