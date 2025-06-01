@@ -18,6 +18,45 @@ export interface OperationResult {
 }
 
 /**
+ * Configuration for operation retry behavior
+ */
+export interface RetryConfig {
+  maxAttempts: number;
+  delayMs: number;
+  backoffMultiplier: number;
+}
+
+/**
+ * Executes an operation with retry logic for resilience
+ * This adds fault tolerance to the application flow
+ */
+export function executeWithRetry<T>(
+  operation: () => T, 
+  operationName: string, 
+  config: RetryConfig = { maxAttempts: 3, delayMs: 100, backoffMultiplier: 2 }
+): T {
+  let lastError: Error | null = null;
+  
+  for (let attempt = 1; attempt <= config.maxAttempts; attempt++) {
+    try {
+      console.log(`Main: Attempting ${operationName} (attempt ${attempt}/${config.maxAttempts})`);
+      return operation();
+    } catch (error) {
+      lastError = error as Error;
+      console.log(`Main: ${operationName} failed on attempt ${attempt}: ${lastError.message}`);
+      
+      if (attempt < config.maxAttempts) {
+        const delay = config.delayMs * Math.pow(config.backoffMultiplier, attempt - 1);
+        console.log(`Main: Retrying ${operationName} in ${delay}ms...`);
+        // In real code, you'd use setTimeout or await new Promise
+      }
+    }
+  }
+  
+  throw new Error(`Operation ${operationName} failed after ${config.maxAttempts} attempts: ${lastError?.message}`);
+}
+
+/**
  * Validates operation parameters before execution
  * This adds a validation layer to the application flow
  */
@@ -44,14 +83,22 @@ export function main(): void {
       return;
     }
     
-    console.log(`Main: Executing ${operation} operation ${index + 1}`);
-    
-    const result: OperationResult = {
-      status: 'success',
-      operation,
-      timestamp: Date.now(),
-      details: `Completed ${operation} internally with validation`
-    };
+    // Execute with retry logic for resilience
+    const result = executeWithRetry(() => {
+      console.log(`Main: Executing ${operation} operation ${index + 1}`);
+      
+      // Simulate potential failure for demonstration
+      if (Math.random() < 0.1) { // 10% chance of failure
+        throw new Error(`Simulated failure in ${operation}`);
+      }
+      
+      return {
+        status: 'success' as const,
+        operation,
+        timestamp: Date.now(),
+        details: `Completed ${operation} internally with validation and retry logic`
+      };
+    }, operation);
     
     results.push(result);
   });
