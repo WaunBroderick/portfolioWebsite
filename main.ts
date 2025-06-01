@@ -1,65 +1,65 @@
 /**
- * Main application entry point that demonstrates the interaction between main and helper modules.
- * This module orchestrates the application flow and demonstrates circular dependency handling.
+ * Main application entry point that demonstrates standalone application flow.
+ * This module now operates independently and provides interfaces for other modules to interact with it.
  */
 
-import { OperationResult } from './helper';
-
-import { helper } from './helper';
-
+// Remove the helper import entirely
+// import { OperationResult } from './helper';
+// import { helper } from './helper';
 
 /**
- * Main application function that demonstrates the orchestration of helper functions.
- * This function shows how the main module coordinates with the helper module.
- * 
- * @example
- * ```typescript
- * main(); // Will execute the orchestrated flow between main and helper
- * ```
- *  
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * @controllerDebug
- * The following arrays are available for joining:
- * 1. changedFiles: ['main.ts']
- * 2. pathComponents: ['/opt/render/project/src/server', 'temp-docs', 'WaunBroderick-portfolio-documentation']
- * 3. files: ['main.ts']
- * 
- * Note: The error occurs when trying to join an undefined array.
- * This might be related to:
- * - A missing array in the controller
- * - An array that was destructured but not properly reassigned
- * - An array that was expected to be created from pathComponents
- * 
+ * Interface for operation results - now defined locally
+ */
+export interface OperationResult {
+  status: 'success' | 'pending' | 'failed';
+  operation: string;
+  timestamp: number;
+  details?: string;
+}
+
+/**
+ * Main application function that demonstrates standalone application flow.
+ * This function now operates independently without directly calling helper.
  */
 export function main(): void {
-  console.log('Main: Starting application flow');
+  console.log('Main: Starting standalone application flow');
   
-  // Execute helper function with a parameter to show data flow
-  const initResult = helper('initialization');
-  console.log('Main: Initialization status:', initResult.status);
-  
-  // Get and log the result of helper function
-  const processResult = helper('processing');
-  console.log('Main: Processing result:', processResult);
-  
-  // Execute helper function multiple times with different parameters
+  // Create results internally instead of calling helper
+  const operations = ['initialization', 'processing', 'finalization'];
   const results: OperationResult[] = [];
-  for (let i = 0; i < 3; i++) {
-    console.log(`Main: Executing helper iteration ${i + 1}`);
-    results.push(helper(`iteration-${i}`));
-  }
+  
+  operations.forEach((operation, index) => {
+    console.log(`Main: Executing ${operation} operation ${index + 1}`);
+    
+    const result: OperationResult = {
+      status: 'success',
+      operation,
+      timestamp: Date.now(),
+      details: `Completed ${operation} internally`
+    };
+    
+    results.push(result);
+  });
   
   // Log final status of all operations
   const allSuccessful = results.every(r => r.status === 'success');
   console.log('Main: All operations successful:', allSuccessful);
-  console.log('Main: Application flow completed');
+  console.log('Main: Standalone application flow completed');
+}
+
+/**
+ * Factory function that creates operation handlers
+ * This allows other modules to interact with main without direct coupling
+ */
+export function createOperationHandler(operation: string) {
+  return () => {
+    console.log(`Main: Handling ${operation} via factory`);
+    return {
+      status: 'success' as const,
+      operation,
+      timestamp: Date.now()
+    };
+  };
 }
 
 // Export a version of main that can be used as a module
