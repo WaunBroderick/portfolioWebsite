@@ -7,6 +7,63 @@
 // import { OperationResult } from './helper';
 // import { helper } from './helper';
 
+
+/**
+ * Performance metrics tracking for operations
+ */
+export interface PerformanceMetrics {
+  operationName: string;
+  startTime: number;
+  endTime: number;
+  duration: number;
+  success: boolean;
+  attemptCount: number;
+}
+
+/**
+ * Simple metrics collector for monitoring application performance
+ */
+export class MetricsCollector {
+  private metrics: PerformanceMetrics[] = [];
+  
+  startOperation(operationName: string): number {
+    return Date.now();
+  }
+  
+  recordOperation(operationName: string, startTime: number, success: boolean, attemptCount: number = 1): void {
+    const endTime = Date.now();
+    const metric: PerformanceMetrics = {
+      operationName,
+      startTime,
+      endTime,
+      duration: endTime - startTime,
+      success,
+      attemptCount
+    };
+    
+    this.metrics.push(metric);
+    console.log(`Metrics: ${operationName} took ${metric.duration}ms (${success ? 'success' : 'failed'}, ${attemptCount} attempts)`);
+  }
+  
+  getMetrics(): PerformanceMetrics[] {
+    return [...this.metrics];
+  }
+  
+  getAverageExecutionTime(operationName?: string): number {
+    const relevantMetrics = operationName 
+      ? this.metrics.filter(m => m.operationName === operationName && m.success)
+      : this.metrics.filter(m => m.success);
+    
+    if (relevantMetrics.length === 0) return 0;
+    
+    const totalDuration = relevantMetrics.reduce((sum, m) => sum + m.duration, 0);
+    return totalDuration / relevantMetrics.length;
+  }
+}
+
+// Global metrics collector instance
+const metricsCollector = new MetricsCollector();
+
 /**
  * Interface for operation results - now defined locally
  */
@@ -90,8 +147,12 @@ export function executeWithRetry<T>(
  * Main application function that demonstrates standalone application flow.
  * This function now operates independently without directly calling helper.
  */
+/**
+ * Main application function that demonstrates standalone application flow.
+ * This function now operates independently without directly calling helper.
+ */
 export function main(): void {
-  console.log('Main: Starting standalone application flow');
+  console.log('Main: Starting standalone application flow with performance monitoring');
   
   // Use configuration-driven operations
   const config = DEFAULT_CONFIG;
@@ -107,46 +168,70 @@ export function main(): void {
       return;
     }
     
-    // Execute with retry logic for resilience (if enabled in config)
-    if (config.enableRetry) {
-      const result = executeWithRetry(() => {
-        console.log(`Main: Executing ${operation} operation ${index + 1}`);
+    // Start performance tracking
+    const startTime = metricsCollector.startOperation(operation);
+    let success = false;
+    let attemptCount = 0;
+    
+    try {
+      // Execute with retry logic for resilience (if enabled in config)
+      if (config.enableRetry) {
+        const result = executeWithRetry(() => {
+          attemptCount++;
+          console.log(`Main: Executing ${operation} operation ${index + 1}`);
+          
+          // Simulate potential failure for demonstration
+          if (Math.random() < 0.1) { // 10% chance of failure
+            throw new Error(`Simulated failure in ${operation}`);
+          }
+          
+          return {
+            status: 'success' as const,
+            operation,
+            timestamp: Date.now(),
+            details: `Completed ${operation} internally with validation, retry logic, and performance monitoring`
+          };
+        }, operation);
         
-        // Simulate potential failure for demonstration
-        if (Math.random() < 0.1) { // 10% chance of failure
-          throw new Error(`Simulated failure in ${operation}`);
-        }
+        results.push(result);
+        success = true;
+      } else {
+        // Simple execution without retry
+        attemptCount = 1;
+        console.log(`Main: Executing ${operation} operation ${index + 1} (no retry)`);
         
-        return {
-          status: 'success' as const,
+        const result: OperationResult = {
+          status: 'success',
           operation,
           timestamp: Date.now(),
-          details: `Completed ${operation} internally with validation and retry logic`
+          details: `Completed ${operation} internally with validation and performance monitoring`
         };
-      }, operation);
-      
-      results.push(result);
-    } else {
-      // Simple execution without retry
-      console.log(`Main: Executing ${operation} operation ${index + 1} (no retry)`);
-      
-      const result: OperationResult = {
-        status: 'success',
-        operation,
-        timestamp: Date.now(),
-        details: `Completed ${operation} internally with validation`
-      };
-      
-      results.push(result);
+        
+        results.push(result);
+        success = true;
+      }
+    } catch (error) {
+      console.error(`Main: Operation ${operation} failed: ${error.message}`);
+      success = false;
+    } finally {
+      // Record performance metrics
+      metricsCollector.recordOperation(operation, startTime, success, attemptCount);
     }
   });
   
-  // Log final status of all operations
+  // Log final status and performance summary
   const allSuccessful = results.every(r => r.status === 'success');
   console.log('Main: All operations successful:', allSuccessful);
-  console.log('Main: Standalone application flow completed');
+  
+  // Display performance metrics
+  console.log('\n=== Performance Summary ===');
+  console.log(`Average execution time: ${metricsCollector.getAverageExecutionTime().toFixed(2)}ms`);
+  const metrics = metricsCollector.getMetrics();
+  console.log(`Total operations tracked: ${metrics.length}`);
+  console.log('=== End Performance Summary ===\n');
+  
+  console.log('Main: Standalone application flow completed with performance monitoring');
 }
-
 /**
  * Factory function that creates operation handlers
  * This allows other modules to interact with main without direct coupling
