@@ -41,7 +41,7 @@ export function helper(operation: string): OperationResult {
     main();
     
     // Execute main function multiple times with operation context
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 5; i++) {  // Changed from 3 to 5 iterations
       console.log(`Helper: Executing main iteration ${i + 1} for ${operation}`);
       main();
     }
@@ -58,4 +58,4 @@ export function helper(operation: string): OperationResult {
 }
 
 // Export a version of helper that can be used as a module
-export default helper;
+export default helper; 
