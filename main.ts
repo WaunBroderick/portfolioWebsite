@@ -151,8 +151,119 @@ export function executeWithRetry<T>(
  * Main application function that demonstrates standalone application flow.
  * This function now operates independently without directly calling helper.
  */
+/**
+ * Main application entry point that demonstrates standalone application flow.
+ * This module now operates independently and provides interfaces for other modules to interact with it.
+ */
+
+// Remove the helper import entirely
+// import { OperationResult } from './helper';
+// import { helper } from './helper';
+
+/**
+ * Health check status for monitoring application state
+ */
+export interface HealthStatus {
+  status: 'healthy' | 'degraded' | 'unhealthy';
+  timestamp: number;
+  uptime: number;
+  operations: {
+    successful: number;
+    failed: number;
+    total: number;
+  };
+  memory: {
+    used: number;
+    percentage: number;
+  };
+}
+
+/**
+ * Application health monitor for tracking system state
+ */
+export class HealthMonitor {
+  private startTime: number = Date.now();
+  private operationCounts = { successful: 0, failed: 0 };
+
+  /**
+   * Get current application health status
+   */
+  getHealthStatus(): HealthStatus {
+    const uptime = Date.now() - this.startTime;
+    const total = this.operationCounts.successful + this.operationCounts.failed;
+    
+    // Simulate memory usage (in real app this would use actual memory data)
+    const memoryUsed = Math.floor(Math.random() * 100) + 50; // 50-150MB
+    const memoryPercentage = Math.min(memoryUsed / 512 * 100, 100); // Assume 512MB limit
+    
+    let status: 'healthy' | 'degraded' | 'unhealthy' = 'healthy';
+    if (memoryPercentage > 80 || (total > 0 && this.operationCounts.failed / total > 0.1)) {
+      status = 'degraded';
+    }
+    if (memoryPercentage > 95 || (total > 0 && this.operationCounts.failed / total > 0.3)) {
+      status = 'unhealthy';
+    }
+
+    return {
+      status,
+      timestamp: Date.now(),
+      uptime,
+      operations: {
+        successful: this.operationCounts.successful,
+        failed: this.operationCounts.failed,
+        total
+      },
+      memory: {
+        used: memoryUsed,
+        percentage: memoryPercentage
+      }
+    };
+  }
+
+  /**
+   * Record operation result for health tracking
+   */
+  recordOperation(success: boolean): void {
+    if (success) {
+      this.operationCounts.successful++;
+    } else {
+      this.operationCounts.failed++;
+    }
+  }
+
+  /**
+   * Reset health monitoring counters
+   */
+  reset(): void {
+    this.startTime = Date.now();
+    this.operationCounts = { successful: 0, failed: 0 };
+  }
+}
+
+// Global health monitor instance
+const healthMonitor = new HealthMonitor();
+
+/**
+ * Performance metrics tracking for operations
+ */
+export interface PerformanceMetrics {
+  operationName: string;
+  startTime: number;
+  endTime: number;
+  duration: number;
+  success: boolean;
+  attemptCount: number;
+}
+
+/**
+ * Main application function that demonstrates standalone application flow.
+ * This function now operates independently without directly calling helper.
+ */
 export function main(): void {
-  console.log('Main: Starting standalone application flow with performance monitoring');
+  console.log('Main: Starting standalone application flow with performance monitoring and health checks');
+  
+  // Reset health monitor for fresh start
+  healthMonitor.reset();
   
   // Use configuration-driven operations
   const config = DEFAULT_CONFIG;
@@ -161,10 +272,15 @@ export function main(): void {
   
   const results: OperationResult[] = [];
   
+  // Log initial health status
+  const initialHealth = healthMonitor.getHealthStatus();
+  console.log(`Main: Initial health status: ${initialHealth.status}`);
+  
   operations.forEach((operation, index) => {
     // Add validation step (if enabled in config)
     if (config.enableValidation && !validateOperation(operation)) {
       console.log(`Main: Invalid operation ${operation}, skipping...`);
+      healthMonitor.recordOperation(false);
       return;
     }
     
@@ -189,7 +305,7 @@ export function main(): void {
             status: 'success' as const,
             operation,
             timestamp: Date.now(),
-            details: `Completed ${operation} internally with validation, retry logic, and performance monitoring`
+            details: `Completed ${operation} internally with validation, retry logic, health monitoring, and performance tracking`
           };
         }, operation);
         
@@ -204,7 +320,7 @@ export function main(): void {
           status: 'success',
           operation,
           timestamp: Date.now(),
-          details: `Completed ${operation} internally with validation and performance monitoring`
+          details: `Completed ${operation} internally with validation, health monitoring, and performance tracking`
         };
         
         results.push(result);
@@ -214,14 +330,24 @@ export function main(): void {
       console.error(`Main: Operation ${operation} failed: ${error.message}`);
       success = false;
     } finally {
-      // Record performance metrics
+      // Record performance metrics and health status
       metricsCollector.recordOperation(operation, startTime, success, attemptCount);
+      healthMonitor.recordOperation(success);
     }
   });
   
   // Log final status and performance summary
   const allSuccessful = results.every(r => r.status === 'success');
   console.log('Main: All operations successful:', allSuccessful);
+  
+  // Display health status
+  const finalHealth = healthMonitor.getHealthStatus();
+  console.log('\n=== Health Status ===');
+  console.log(`Status: ${finalHealth.status}`);
+  console.log(`Uptime: ${finalHealth.uptime}ms`);
+  console.log(`Operations: ${finalHealth.operations.successful}/${finalHealth.operations.total} successful`);
+  console.log(`Memory usage: ${finalHealth.memory.used}MB (${finalHealth.memory.percentage.toFixed(1)}%)`);
+  console.log('=== End Health Status ===\n');
   
   // Display performance metrics
   console.log('\n=== Performance Summary ===');
@@ -230,8 +356,17 @@ export function main(): void {
   console.log(`Total operations tracked: ${metrics.length}`);
   console.log('=== End Performance Summary ===\n');
   
-  console.log('Main: Standalone application flow completed with performance monitoring');
+  console.log('Main: Standalone application flow completed with health monitoring and performance tracking');
 }
+
+/**
+ * Get current application health status (new export for external monitoring)
+ */
+export function getApplicationHealth(): HealthStatus {
+  return healthMonitor.getHealthStatus();
+}
+
+// ... existing code ... 
 /**
  * Factory function that creates operation handlers
  * This allows other modules to interact with main without direct coupling
