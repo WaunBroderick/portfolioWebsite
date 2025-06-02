@@ -41,6 +41,7 @@ export function helper(operation: string): OperationResult {
     main();
     
     // Execute main function multiple times with operation context
+    // Updated: Now runs 5 iterations instead of the original 3
     for (let i = 0; i < 5; i++) {  // Changed from 3 to 5 iterations
       console.log(`Helper: Executing main iteration ${i + 1} for ${operation}`);
       main();
