@@ -16,6 +16,9 @@ import logoUN from '@/images/logos/unLogo.png'
 import logoCAF from '@/images/logos/cafLogo.png'
 import logoCSE from '@/images/logos/cseLogo.png'
 import logoTD from '@/images/logos/tdBankLogo.png'
+import logoShopify from '@/images/logos/shopifyLogo.png'
+import logoAmoebaAI from '@/images/logos/amoebaAILogo.jpeg'
+import logoCreditPulse from '@/images/logos/creditPulseLogo.jpeg'
 import image1 from '@/images/photos/image-1.jpg'
 import image2 from '@/images/photos/image-2.jpg'
 import image3 from '@/images/photos/image-3.jpg'
@@ -35,6 +38,7 @@ import { type ArticleWithSlug, getAllArticles } from '@/lib/articles'
 import { formatDate } from '@/lib/formatDate'
 
 import { mediumArticle01, mediumArticle02 } from './articles/mediumArticles'
+import logoAmoeba from '@/images/logos/amoebaAvatar.svg'
 
 function MailIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -220,14 +224,35 @@ function Role({ role }: { role: Role }) {
 function Resume() {
   let resume: Array<Role> = [
     {
-      company: 'Forum Ventures',
-      title: 'Technical Lead',
-      logo: logoForumVentures,
-      start: '2023',
+      company: 'Shopify',
+      title: 'Senior Software Engineer',
+      logo: logoShopify,
+      start: '2024',
       end: {
         label: 'Present',
         dateTime: new Date().getFullYear().toString(),
       },
+    },
+    {
+      company: 'Forum Ventures',
+      title: 'Technical Lead',
+      logo: logoForumVentures,
+      start: '2024',
+      end: '2025',
+    },
+    {
+      company: 'Amoeba AI',
+      title: 'Lead Full-Stack Engineer',
+      logo: logoAmoebaAI,
+      start: '2024',
+      end: '2024',
+    },
+    {
+      company: 'Credit Pulse',
+      title: 'Lead Full-Stack Engineer',
+      logo: logoCreditPulse,
+      start: '2024',
+      end: '2024',
     },
     {
       company: 'Labnetik',
@@ -290,7 +315,6 @@ function Resume() {
 }
 
 function Photos() {
-  let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
   let images = [
     image1,
     image2,
@@ -309,6 +333,20 @@ function Photos() {
     image15,
   ]
 
+  // Create a rotations array that matches the length of the duplicated images
+  let rotations = Array(images.length * 2)
+    .fill(0)
+    .map((_, i) => {
+      const baseRotations = [
+        'rotate-2',
+        '-rotate-2',
+        'rotate-2',
+        'rotate-2',
+        '-rotate-2',
+      ]
+      return baseRotations[i % baseRotations.length]
+    })
+
   return (
     <div className="mt-16 sm:mt-20">
       <div className="relative -my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
@@ -318,7 +356,7 @@ function Photos() {
               key={`${image.src}-${imageIndex}`}
               className={clsx(
                 'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
-                rotations[imageIndex % rotations.length],
+                rotations[imageIndex],
               )}
             >
               <Image
@@ -346,8 +384,8 @@ export default async function Home() {
             Software engineer, founder, and veteran.
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I’m Waun, a software engineer and entrepreneur based in Toronto
-            Canada. I’m currently a Technical Lead at Forum Ventures where I
+            I'm Waun, a software engineer and entrepreneur based in Toronto
+            Canada. I'm currently a Technical Lead at Forum Ventures where I
             help validate, build, and deliver products for our studio companies.
           </p>
           <div className="mt-6 flex gap-6">

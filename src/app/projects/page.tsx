@@ -9,6 +9,7 @@ import logoSiftr from '@/images/logos/siftrLogo.png'
 import logoCreditPulse from '@/images/logos/CreditPulseLogo.png'
 import logoAmoeba from '@/images/logos/amoebaAvatar.svg'
 import logoCordelia from '@/images/logos/logoCordelia.svg'
+import logoHemingway from '@/images/logos/HemingwayLogo.png'
 
 const projects = [
   {
@@ -30,12 +31,23 @@ const projects = [
   },
   {
     name: 'Cordelia',
-    description: 'A AI Legal tech product, that is currently under stealth.',
+    description:
+      'A full end to end legal platform that manages your estate, automates document generation, and articulates high level intricacies of the laws that govern your assets.',
     link: {
-      href: 'https://www.google.com',
-      label: 'STEALTH',
+      href: 'https://www.getcordelia.com',
+      label: 'GetCordelia.com',
     },
     logo: logoCordelia,
+  },
+  {
+    name: 'Hemingway AI ',
+    description:
+      'The future of code documentation generation. Automatically vectorize, understand, generate, and alter your code documentation through Github Interactions.',
+    link: {
+      href: 'https://www.google.com',
+      label: 'WIP - Finishing Branding',
+    },
+    logo: logoHemingway,
   },
   {
     name: 'Labnetik',
