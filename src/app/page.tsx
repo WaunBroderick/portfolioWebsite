@@ -384,9 +384,10 @@ export default async function Home() {
             Software engineer, founder, and veteran.
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I'm Waun, a software engineer and entrepreneur based in Toronto
-            Canada. I'm currently a Technical Lead at Forum Ventures where I
-            help validate, build, and deliver products for our studio companies.
+            I&apos;m Waun, a software engineer and entrepreneur based in Toronto
+            Canada. I&apos;m currently a Technical Lead at Forum Ventures where
+            I help validate, build, and deliver products for our studio
+            companies.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
