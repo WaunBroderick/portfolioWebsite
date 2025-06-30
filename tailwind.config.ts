@@ -28,12 +28,16 @@ export default {
       // Adding custom animations
       animation: {
         scroll: 'scroll 10s linear infinite',
-        // ... other animations if any
+        'infinite-scroll': 'infinite-scroll 60s linear infinite',
       },
       keyframes: {
         scroll: {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-50%)' },
+        },
+        'infinite-scroll': {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-25%)' }, // Since we have 4 copies, we move 1/4 of the way
         },
       },
     },

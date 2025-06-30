@@ -34,6 +34,12 @@ import image12 from '@/images/photos/image-12.jpeg'
 import image13 from '@/images/photos/image-13.jpeg'
 import image14 from '@/images/photos/image-14.jpeg'
 import image15 from '@/images/photos/image-15.jpeg'
+import image16 from '@/images/photos/image-16.png'
+import image17 from '@/images/photos/image-17.png'
+import image18 from '@/images/photos/image-18.png'
+import image19 from '@/images/photos/image-19.jpeg'
+import image20 from '@/images/photos/image-20.jpeg'
+import image21 from '@/images/photos/image-21.jpeg'
 import { type ArticleWithSlug, getAllArticles } from '@/lib/articles'
 import { formatDate } from '@/lib/formatDate'
 
@@ -331,10 +337,20 @@ function Photos() {
     image13,
     image14,
     image15,
+    image16,
+    image17,
+    image18,
+    image19,
+    image20,
+    image21,
   ]
 
-  // Create a rotations array that matches the length of the duplicated images
-  let rotations = Array(images.length * 2)
+  // Create enough copies to ensure seamless looping
+  // We'll create 4 copies to ensure there's always content visible
+  const repeatedImages = Array(4).fill(images).flat()
+
+  // Create rotations for all repeated images
+  let rotations = Array(repeatedImages.length)
     .fill(0)
     .map((_, i) => {
       const baseRotations = [
@@ -350,12 +366,14 @@ function Photos() {
   return (
     <div className="mt-16 sm:mt-20">
       <div className="relative -my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
-        <div className="flex animate-none hover:animate-scroll">
-          {[...images, ...images].map((image, imageIndex) => (
+        <div className="animate-infinite-scroll flex hover:[animation-play-state:paused]">
+          {repeatedImages.map((image, imageIndex) => (
             <div
-              key={`${image.src}-${imageIndex}`}
+              key={`${image.src}-${Math.floor(imageIndex / images.length)}-${
+                imageIndex % images.length
+              }`}
               className={clsx(
-                'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
+                'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 transition-transform duration-300 hover:z-10 hover:scale-110 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
                 rotations[imageIndex],
               )}
             >
@@ -364,6 +382,7 @@ function Photos() {
                 alt=""
                 sizes="(min-width: 640px) 18rem, 11rem"
                 className="absolute inset-0 h-full w-full object-cover"
+                priority={imageIndex < images.length} // Prioritize loading the first set
               />
             </div>
           ))}
