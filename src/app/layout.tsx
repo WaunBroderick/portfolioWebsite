@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     default: 'Waun Broderick - Software engineer, founder, and a veteran',
   },
   description:
-    'I’m Waun, a software engineer, builder, and entrepreneur. I am currently helping lead logisitics initatives with Shopify and building future standards in the legal space.',
+    'I’m Waun, a software engineer, builder, and entrepreneur. I am currently helping to lead logisitics initatives with Shopify, and building future AI standards in the legal space.',
   alternates: {
     types: {
       //'application/rss+xml': `${process.env.NEXT_PUBLIC_SITE_URL}/feed.xml`,
