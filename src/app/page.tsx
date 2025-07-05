@@ -366,7 +366,7 @@ function Photos() {
   return (
     <div className="mt-16 sm:mt-20">
       <div className="relative -my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
-        <div className="animate-infinite-scroll flex hover:[animation-play-state:paused]">
+        <div className="flex animate-infinite-scroll hover:[animation-play-state:paused]">
           {repeatedImages.map((image, imageIndex) => (
             <div
               key={`${image.src}-${Math.floor(imageIndex / images.length)}-${
@@ -403,10 +403,9 @@ export default async function Home() {
             Software engineer, founder, and veteran.
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I&apos;m Waun, a software engineer and entrepreneur based in Toronto
-            Canada. I&apos;m currently a Technical Lead at Forum Ventures where
-            I help validate, build, and deliver products for our studio
-            companies.
+            I&apos;m Waun, a software engineer, builder, and entrepreneur. I am
+            currently helping to lead logisitics initatives with Shopify, and
+            building future AI standards in the legal space.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
