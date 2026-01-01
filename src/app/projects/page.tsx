@@ -44,7 +44,7 @@ const projects = [
     description:
       'The future of code documentation generation. Automatically vectorize, understand, generate, and alter your code documentation through Github Interactions.',
     link: {
-      href: 'https://www.google.com',
+      href: '#',
       label: 'WIP - Finishing Branding',
     },
     logo: logoHemingway,

@@ -19,6 +19,7 @@ import logoTD from '@/images/logos/tdBankLogo.png'
 import logoShopify from '@/images/logos/shopifyLogo.png'
 import logoAmoebaAI from '@/images/logos/amoebaAILogo.jpeg'
 import logoCreditPulse from '@/images/logos/creditPulseLogo.jpeg'
+import logoQuo from '@/images/logos/quoLogo.jpg'
 import image1 from '@/images/photos/image-1.jpg'
 import image2 from '@/images/photos/image-2.jpg'
 import image3 from '@/images/photos/image-3.jpg'
@@ -230,21 +231,28 @@ function Role({ role }: { role: Role }) {
 function Resume() {
   let resume: Array<Role> = [
     {
-      company: 'Shopify',
+      company: 'Quo',
       title: 'Senior Software Engineer',
-      logo: logoShopify,
-      start: '2024',
+      logo: logoQuo,
+      start: '2025',
       end: {
         label: 'Present',
         dateTime: new Date().getFullYear().toString(),
       },
     },
     {
+      company: 'Shopify',
+      title: 'Senior Software Engineer',
+      logo: logoShopify,
+      start: '2024',
+      end: '2025',
+    },
+    {
       company: 'Forum Ventures',
       title: 'Technical Lead',
       logo: logoForumVentures,
-      start: '2024',
-      end: '2025',
+      start: '2023',
+      end: '2024',
     },
     {
       company: 'Amoeba AI',
