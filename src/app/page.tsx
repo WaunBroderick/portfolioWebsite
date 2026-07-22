@@ -20,6 +20,7 @@ import logoShopify from '@/images/logos/shopifyLogo.png'
 import logoAmoebaAI from '@/images/logos/amoebaAILogo.jpeg'
 import logoCreditPulse from '@/images/logos/creditPulseLogo.jpeg'
 import logoQuo from '@/images/logos/quoLogo.jpg'
+import logoGovCanada from '@/images/logos/logoGovCanada.png'
 import image1 from '@/images/photos/image-1.jpg'
 import image2 from '@/images/photos/image-2.jpg'
 import image3 from '@/images/photos/image-3.jpg'
@@ -276,9 +277,9 @@ function Resume() {
       end: '2023',
     },
     {
-      company: 'Communication Security Establishment',
+      company: 'Government Of Canada',
       title: 'ML Solutions Engineers',
-      logo: logoCSE,
+      logo: logoGovCanada,
       start: '2019',
       end: '2020',
     },
@@ -317,13 +318,16 @@ function Resume() {
         ))}
       </ol>
       <Button
-        href="/documents/resume.pdf"
         variant="secondary"
-        className="group mt-6 w-full"
+        disabled
+        className="group mt-6 w-full cursor-not-allowed opacity-60"
       >
         Download CV
-        <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
+        <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition dark:group-hover:stroke-zinc-50" />
       </Button>
+      <p className="mt-2 text-center text-xs text-zinc-500 dark:text-zinc-400">
+        CV is being updated — check back soon.
+      </p>
     </div>
   )
 }
